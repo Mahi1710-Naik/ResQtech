@@ -75,7 +75,7 @@ export default function DashboardOverview() {
                       </div>
                       <div>
                         <p className="font-semibold">{alert.userName}</p>
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-xs text-muted-foreground" suppressHydrationWarning>
                           {alert.deviceName} • {mounted ? new Date(alert.timestamp).toLocaleTimeString() : "..."}
                         </p>
                       </div>
