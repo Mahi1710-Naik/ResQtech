@@ -8,6 +8,7 @@ import { MOCK_ALERTS, MOCK_DEVICES } from "@/app/lib/mock-data";
 import { StatusBadge } from "@/components/dashboard/StatusBadge";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function DashboardOverview() {
   const [mounted, setMounted] = useState(false);
@@ -127,8 +128,4 @@ export default function DashboardOverview() {
       </div>
     </div>
   );
-}
-
-function cn(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
 }
