@@ -43,7 +43,7 @@ export const MOCK_DEVICES: WatchDevice[] = [
     ownerName: 'Ananya Sharma',
     status: 'Online',
     batteryLevel: 85,
-    lastReported: new Date().toISOString(),
+    lastReported: '2024-05-20T10:00:00Z',
     currentLocation: { lat: 19.0760, lng: 72.8777 },
     healthData: { heartRate: 72, spo2: 98, stressLevel: 'Low' },
     accessibilityMode: 'Standard'
@@ -54,7 +54,7 @@ export const MOCK_DEVICES: WatchDevice[] = [
     ownerName: 'Priya Singh',
     status: 'Emergency',
     batteryLevel: 42,
-    lastReported: new Date().toISOString(),
+    lastReported: '2024-05-20T11:15:00Z',
     currentLocation: { lat: 28.6139, lng: 77.2090 },
     healthData: { heartRate: 115, spo2: 94, stressLevel: 'High' },
     accessibilityMode: 'Deaf'
@@ -67,7 +67,7 @@ export const MOCK_ALERTS: EmergencyAlert[] = [
     deviceId: 'GB-1024',
     deviceName: 'Priya Device',
     userName: 'Priya Singh',
-    timestamp: new Date().toISOString(),
+    timestamp: '2024-05-20T11:15:00Z',
     location: { lat: 28.6139, lng: 77.2090 },
     status: 'Active',
     urgency: 'Pending',
