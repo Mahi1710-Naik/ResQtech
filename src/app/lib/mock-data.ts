@@ -9,6 +9,12 @@ export interface WatchDevice {
     lat: number;
     lng: number;
   };
+  healthData: {
+    heartRate: number;
+    spo2: number;
+    stressLevel: 'Low' | 'Medium' | 'High';
+  };
+  accessibilityMode: 'Standard' | 'Deaf' | 'Blind' | 'LimitedMobility';
 }
 
 export interface EmergencyAlert {
@@ -23,7 +29,11 @@ export interface EmergencyAlert {
   };
   status: 'Active' | 'Resolved' | 'Dispatched';
   urgency: 'Low' | 'Medium' | 'High' | 'Critical' | 'Pending';
-  audioSnippetUrl?: string;
+  triggerType: 'Button' | 'Fall' | 'Voice' | 'HeartRate' | 'Gesture';
+  sensorSnapshot: {
+    heartRate: number;
+    accelMagnitude: number;
+  };
 }
 
 export const MOCK_DEVICES: WatchDevice[] = [
@@ -33,8 +43,10 @@ export const MOCK_DEVICES: WatchDevice[] = [
     ownerName: 'Ananya Sharma',
     status: 'Online',
     batteryLevel: 85,
-    lastReported: '2024-05-20T10:45:00Z',
-    currentLocation: { lat: 19.0760, lng: 72.8777 }
+    lastReported: new Date().toISOString(),
+    currentLocation: { lat: 19.0760, lng: 72.8777 },
+    healthData: { heartRate: 72, spo2: 98, stressLevel: 'Low' },
+    accessibilityMode: 'Standard'
   },
   {
     id: 'GB-1024',
@@ -42,17 +54,10 @@ export const MOCK_DEVICES: WatchDevice[] = [
     ownerName: 'Priya Singh',
     status: 'Emergency',
     batteryLevel: 42,
-    lastReported: '2024-05-20T11:15:00Z',
-    currentLocation: { lat: 28.6139, lng: 77.2090 }
-  },
-  {
-    id: 'GB-5542',
-    name: 'Meera Watch',
-    ownerName: 'Meera Kapoor',
-    status: 'Offline',
-    batteryLevel: 12,
-    lastReported: '2024-05-19T22:30:00Z',
-    currentLocation: { lat: 12.9716, lng: 77.5946 }
+    lastReported: new Date().toISOString(),
+    currentLocation: { lat: 28.6139, lng: 77.2090 },
+    healthData: { heartRate: 115, spo2: 94, stressLevel: 'High' },
+    accessibilityMode: 'Deaf'
   }
 ];
 
@@ -62,10 +67,12 @@ export const MOCK_ALERTS: EmergencyAlert[] = [
     deviceId: 'GB-1024',
     deviceName: 'Priya Device',
     userName: 'Priya Singh',
-    timestamp: '2024-05-20T11:15:00Z',
+    timestamp: new Date().toISOString(),
     location: { lat: 28.6139, lng: 77.2090 },
     status: 'Active',
-    urgency: 'Pending'
+    urgency: 'Pending',
+    triggerType: 'Fall',
+    sensorSnapshot: { heartRate: 118, accelMagnitude: 4.5 }
   }
 ];
 

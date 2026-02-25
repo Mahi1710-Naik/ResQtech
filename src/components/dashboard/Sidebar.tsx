@@ -10,8 +10,8 @@ import {
   Users, 
   Settings,
   LogOut,
-  Bell,
-  Radio
+  Radio,
+  Cpu
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -21,6 +21,7 @@ const navItems = [
   { icon: ShieldAlert, label: 'Emergencies', href: '/dashboard/alerts' },
   { icon: MapIcon, label: 'Live Map', href: '/dashboard/map' },
   { icon: Radio, label: 'SOS Simulation', href: '/dashboard/sos-simulation' },
+  { icon: Cpu, label: 'Engineering', href: '/dashboard/engineering' },
   { icon: Smartphone, label: 'Devices', href: '/dashboard/devices' },
   { icon: Users, label: 'Trusted Contacts', href: '/dashboard/contacts' },
   { icon: Settings, label: 'Settings', href: '/dashboard/settings' },
