@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Header } from "@/components/dashboard/Header";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShieldAlert, Activity, Smartphone, Users, ChevronRight } from "lucide-react";
@@ -7,6 +10,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function DashboardOverview() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const activeAlerts = MOCK_ALERTS.filter(a => a.status === 'Active');
   const onlineDevices = MOCK_DEVICES.filter(d => d.status === 'Online');
 
@@ -65,7 +74,9 @@ export default function DashboardOverview() {
                       </div>
                       <div>
                         <p className="font-semibold">{alert.userName}</p>
-                        <p className="text-xs text-muted-foreground">{alert.deviceName} • {new Date(alert.timestamp).toLocaleTimeString()}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {alert.deviceName} • {mounted ? new Date(alert.timestamp).toLocaleTimeString() : "..."}
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
