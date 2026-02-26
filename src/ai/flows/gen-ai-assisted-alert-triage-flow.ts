@@ -1,3 +1,4 @@
+
 'use server';
 
 import {ai} from '@/ai/genkit';
@@ -36,7 +37,7 @@ export type GenAIAssistedAlertTriageOutput = z.infer<typeof GenAIAssistedAlertTr
 
 export async function genAIAssistedAlertTriage(input: GenAIAssistedAlertTriageInput): Promise<GenAIAssistedAlertTriageOutput> {
   const { output } = await ai.generate({
-    model: 'googleai/gemini-2.0-flash',
+    model: 'googleai/gemini-2.5-flash',
     prompt: `Act as an Emergency Dispatch Expert for a safety watch. 
     Analyze the following incident:
     - User: ${input.userName}

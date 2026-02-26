@@ -12,10 +12,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function Header({ title }: { title: string }) {
+  const userAvatar = PlaceHolderImages.find(img => img.id === 'user-avatar');
+
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b bg-white/80 px-6 backdrop-blur-md">
+    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b bg-white/80 px-6 backdrop-blur-md" suppressHydrationWarning>
       <h1 className="text-xl font-bold text-foreground">{title}</h1>
       
       <div className="flex items-center gap-4">
@@ -24,10 +27,11 @@ export function Header({ title }: { title: string }) {
           <Input 
             placeholder="Search devices or alerts..." 
             className="pl-9 bg-muted/50 border-none focus-visible:ring-1"
+            suppressHydrationWarning
           />
         </div>
 
-        <Button variant="ghost" size="icon" className="relative">
+        <Button variant="ghost" size="icon" className="relative" suppressHydrationWarning>
           <Bell className="h-5 w-5 text-muted-foreground" />
           <span className="absolute right-2 top-2 flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
@@ -37,9 +41,12 @@ export function Header({ title }: { title: string }) {
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+            <Button variant="ghost" className="relative h-8 w-8 rounded-full" suppressHydrationWarning>
               <Avatar className="h-8 w-8 border border-primary/20">
-                <AvatarImage src="https://picsum.photos/seed/user/100" />
+                <AvatarImage 
+                  src={userAvatar?.imageUrl} 
+                  data-ai-hint={userAvatar?.imageHint}
+                />
                 <AvatarFallback>JD</AvatarFallback>
               </Avatar>
             </Button>

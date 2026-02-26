@@ -1,0 +1,29 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "user-avatar",
+      "description": "Default responder profile picture",
+      "imageUrl": "https://picsum.photos/seed/user/100",
+      "imageHint": "user avatar"
+    },
+    {
+      "id": "map-background",
+      "description": "Mock city map background for live tracking",
+      "imageUrl": "https://picsum.photos/seed/map/1200/800",
+      "imageHint": "city map"
+    },
+    {
+      "id": "ananya-avatar",
+      "description": "Ananya Sharma profile picture",
+      "imageUrl": "https://picsum.photos/seed/GB-9921/100",
+      "imageHint": "woman profile"
+    },
+    {
+      "id": "priya-avatar",
+      "description": "Priya Singh profile picture",
+      "imageUrl": "https://picsum.photos/seed/GB-1024/100",
+      "imageHint": "woman profile"
+    }
+  ]
+}
